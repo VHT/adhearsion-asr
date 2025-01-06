@@ -19,8 +19,8 @@ module AdhearsionASR
       @prompt = if output_document || options[:render_document]
         output_options = {
           render_document: options[:render_document] || {value: output_document},
-          renderer: Adhearsion.config.platform.media.default_renderer,
-          voice: Adhearsion.config.platform.media.default_voice
+          renderer: Adhearsion.config.core.media.default_renderer,
+          voice: Adhearsion.config.core.media.default_voice
         }.merge(options[:output_options] || {})
 
         Punchblock::Component::Prompt.new output_options, input_options, barge_in: options.has_key?(:interruptible) ? options[:interruptible] : true
